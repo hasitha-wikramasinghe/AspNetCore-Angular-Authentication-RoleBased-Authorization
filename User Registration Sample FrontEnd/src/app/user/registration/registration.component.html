@@ -1,0 +1,36 @@
+
+<form novalidate [formGroup]="service.formModel" autocomplete="off" (submit)="onSubmit()">
+    <div class="form-group required">
+        <label>User Name</label>
+        <input class="form-control" formControlName="UserName">
+        <label class="text-danger" *ngIf="service.formModel.controls['UserName'].touched && service.formModel.controls['UserName'].hasError('required')">This field is mandatory.</label>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="Email">
+        <label class="text-danger" *ngIf="service.formModel.controls['Email'].touched && service.formModel.controls['Email'].hasError('email')">Please enter correct email</label>
+    </div>
+    <div class="form-group">
+        <label>Full Name</label>
+        <input class="form-control" formControlName="FullName">
+    </div>
+    <div formGroupName="Passwords">
+        <div class="form-group required">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="Password">
+            <!-- <label class="text-danger" *ngIf="service.formModel.controls['Passwords'].controls['Password'].touched">This field is mandatory</label> -->
+            <!-- && service.formModel.controls['Passwords.Password'].hasError('required') -->
+        </div>
+        <div class="form-group required">
+            <label>Confirm Password</label>
+            <input type="password" class="form-control" formControlName="ConfirmPassword">
+            <!-- <label class="text-danger" *ngIf="service.formModel.controls['Passwords.ConfirmPassword'].touched && service.formModel.controls['Passwords.ConfirmPassword'].hasError('required')">This field is mandatory</label>   -->
+        </div>
+    </div>
+    <br>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-md-2">
+            <button type="submit" class="btn btn-success btn-block">Sign Up</button>
+        </div>
+    </div>
+</form>
